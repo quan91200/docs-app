@@ -1,0 +1,51 @@
+:root {
+  /* Color */
+  --color-white: #fff;
+  --color-black: #000000;
+
+  --color-blue-500: oklch(62.3% 0.214 259.815);
+  --color-red-500: oklch(63.7% 0.237 25.331);
+  --color-yellow-500: oklch(79.5% 0.184 86.047);
+  --color-green-500: oklch(72.3% 0.219 149.579);
+  --color-gray-500: oklch(55.1% 0.027 264.364);
+
+  --color-blue-700: oklch(48.8% 0.243 264.376);
+  --color-red-700: oklch(50.5% 0.213 27.518);
+  --color-yellow-700: oklch(55.4% 0.135 66.442);
+  --color-green-700: oklch(52.7% 0.154 150.069);
+  --color-gray-700: oklch(37.3% 0.034 259.733);
+
+  /* Size space */
+  --size-space-tiny: 0.25rem;
+  --size-space-small: 0.5rem;
+  --size-space-medium: 0.75rem;
+  --size-space-large: 1rem;
+  --size-space-x-large: 1.25rem;
+  --size-space-xx-large: 1.5rem; 
+}
+
+/* Light mode */
+:root {
+  --color-background: var(--color-white);
+  --color-text: var(--color-black);
+
+  --color-danger: var(--color-red-500);
+  --color-warning: var(--color-yellow-500);
+  --color-success: var(--color-green-500);
+  --color-secondary: var(--color-gray-500);
+  --color-primary: var(--color-blue-500);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: var(--color-white);
+    --color-background: var(--color-black);
+  
+    --color-danger: var(--color-red-700);
+    --color-warning: var(--color-yellow-700);
+    --color-success: var(--color-green-700);
+    --color-secondary: var(--color-gray-700);
+    --color-primary: var(--color-blue-700);
+  }
+}
