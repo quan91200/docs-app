@@ -40,7 +40,8 @@ export default class DocsListContext extends BaseLifecycle {
   /**
    * Setup component
    */
-  setupComponent() {
+  async setupComponent() {
+    await this.docsStore.loadDocs()
     // Theo dõi thay đổi của route (id)
     watch(
       () => this.route.params.id,
