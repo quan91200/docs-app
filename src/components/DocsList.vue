@@ -9,7 +9,7 @@ export default defineComponent({
   name: 'DocsList',
 
   emits: [
-    'create', 'rename', 'delete', 'select'
+    'create','rename', 'delete', 'select'
   ],
 
   setup(props, { emit }) {
@@ -48,7 +48,7 @@ export default defineComponent({
         v-for="doc in context.docsStore.docs"
         :key="doc.id"
         class="doc-item"
-        :class="{ active: isActive(doc) }"
+        :class="{ active: context.isActive(doc) }"
         @click="$emit('select', doc)"
       >
         <div class="doc-info">
