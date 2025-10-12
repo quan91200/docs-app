@@ -31,6 +31,12 @@ export default class DocsListContext extends BaseLifecycle {
     this.route = useRoute()
   }
 
+  static create({
+    emit,
+  }) {
+    return new this(emit)
+  }
+
   /**
    * Setup component
    */
@@ -55,6 +61,8 @@ export default class DocsListContext extends BaseLifecycle {
       },
       { immediate: true }
     )
+
+    return this
   }
 
   /**

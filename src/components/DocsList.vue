@@ -1,49 +1,51 @@
-<script setup>
+<script>
 import {
-  onMounted,
+  defineComponent,
 } from 'vue'
 
 import DocsListContext from '@/apps/contexts/DocsListContext'
 
-const emit = defineEmits(['create', 'rename', 'delete', 'select'])
-const ctx = new DocsListContext(emit)
+export default defineComponent({
+  name: 'DocsList',
 
-onMounted(() => {
-  ctx.onMounted()
-  ctx.setupComponent()
+  emits: [
+    'create', 'rename', 'delete', 'select'
+  ],
+
+  setup(props, { emit }) {
+    const context = DocsListContext.create({ emit })
+      .setupComponent()
+
+    return {
+      context,
+    }
+  }
 })
-
-const {
-  docsStore,
-  formatDate,
-  isActive,
-  handleCreate,
-} = ctx
 </script>
 
 <template>
   <div class="docs-sidebar">
     <div class="sidebar-header">
       <h2>Documents</h2>
-      <button class="btn-new" @click="handleCreate" title="Tạo file mới">
+      <button class="btn-new" @click="context.handleCreate()" title="Tạo file mới">
         <span>+</span>
       </button>
     </div>
 
-    <div v-if="docsStore.isLoading" class="loading">
+    <div v-if="context.docsStore.isLoading" class="loading">
       Đang tải...
     </div>
 
-    <div v-else-if="!docsStore.hasDocuments" class="empty-state">
+    <div v-else-if="!context.docsStore.hasDocuments" class="empty-state">
       <p>Chưa có document nào</p>
-      <button class="btn-create" @click="handleCreate">
+      <button class="btn-create" @click="context.handleCreate()">
         Tạo file đầu tiên
       </button>
     </div>
 
     <div v-else class="docs-list">
       <div
-        v-for="doc in docsStore.docs"
+        v-for="doc in context.docsStore.docs"
         :key="doc.id"
         class="doc-item"
         :class="{ active: isActive(doc) }"

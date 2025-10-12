@@ -36,6 +36,12 @@ export default class DialogContext extends BaseLifecycle {
     this._currentDocId = ref(null)
   }
 
+  static create({
+    emit,
+  }) {
+    return new this(emit)
+  }
+
   /**
    * Setup context với props từ component
    */

@@ -1,25 +1,38 @@
-<script setup>
+<script>
+import {
+  defineComponent,
+} from 'vue'
+
 import DialogContext from '@/apps/contexts/DialogContext'
 
-const props = defineProps({
-  isOpen: {
-    type: Boolean,
-    default: false
+export default defineComponent({
+  name: 'Dialog',
+
+  props: {
+    isOpen: {
+      type: Boolean,
+      default: false
+    },
+    currentFilename: {
+      type: String,
+      default: ''
+    },
+    docId: {
+      type: [Number, String],
+      default: null
+    }
   },
-  currentFilename: {
-    type: String,
-    default: ''
-  },
-  docId: {
-    type: [Number, String],
-    default: null
+
+  emits: ['close', 'save', 'rename'],
+
+  setup(props, { emit }) {
+    const context = DialogContext.create({ emit }).setupComponent(props)
+
+    return {
+      context,
+    }
   }
 })
-
-const emit = defineEmits(['close', 'save', 'rename'])
-
-const context = new DialogContext(emit)
-context.setupComponent(props)
 </script>
 
 <template>
