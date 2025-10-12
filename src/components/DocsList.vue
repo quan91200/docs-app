@@ -13,11 +13,11 @@ export default defineComponent({
   ],
 
   setup(props, { emit }) {
-    const context = DocsListContext.create({ emit })
+    const rawContext = DocsListContext.create({ emit })
       .setupComponent()
 
     return {
-      context,
+      context: rawContext,
     }
   }
 })
