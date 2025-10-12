@@ -53,7 +53,7 @@ export default defineComponent({
       >
         <div class="doc-info">
           <div class="doc-name">{{ doc.filename }}</div>
-          <div class="doc-meta">{{ formatDate(doc.updatedAt) }}</div>
+          <div class="doc-meta">{{ context.formatDate(doc.updatedAt) }}</div>
         </div>
 
         <div class="doc-actions">
