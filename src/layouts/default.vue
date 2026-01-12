@@ -52,7 +52,6 @@ export default defineComponent({
   flex-grow: 1;
 
   min-height: calc(95dvh - 6rem);
-  background: var(--color-background);
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 </style>
