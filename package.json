@@ -13,9 +13,12 @@
     "lint": "eslint . --fix"
   },
   "dependencies": {
+    "@phosphor-icons/vue": "^2.2.1",
     "codemirror-editor-vue3": "^2.8.0",
     "github-markdown-css": "^5.8.1",
+    "html2canvas": "^1.4.1",
     "idb": "^8.0.3",
+    "jspdf": "^4.0.0",
     "lodash": "^4.17.21",
     "markdown-it": "^14.1.0",
     "markdown-it-anchor": "^9.2.0",
