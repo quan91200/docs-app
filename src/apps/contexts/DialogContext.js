@@ -136,9 +136,9 @@ export default class DialogContext extends BaseLifecycle {
 
       return false
     }
-    if (!/^[a-zA-Z0-9-_ ]+$/.test(name)) {
+    if (!/^[a-zA-Z0-9-_, ]+$/.test(name)) {
       this._errorMsg.value =
-        'Tên file chỉ được chứa chữ cái, số, dấu gạch ngang và gạch dưới'
+        'Tên file chỉ được chứa chữ cái, số, khoảng trắng và các ký tự: - _ ,'
 
       return false
     }
